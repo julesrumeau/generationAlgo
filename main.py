@@ -22,11 +22,19 @@ def lancer_tests(functionString):
         print(f"Certains tests ont échoué. Nombre d'échecs : {result}")
 
 
-program_base = """
-def return0():
-"""
-res = modify_program(program_base,1)
-exec(res)
+seed = "def return0():"
 
-print(res)
-lancer_tests(res)
+NOMBRE_POPULATION = 10
+
+def generate_population(seed):
+    population = []
+    for i in range (NOMBRE_POPULATION):
+        code = modify_program(seed, 1)
+        population.append(code)
+    print(population)
+
+
+generate_population(seed)
+# res = modify_program(program_base,1)
+# print(res)
+# lancer_tests(res)
